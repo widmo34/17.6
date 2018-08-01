@@ -20,8 +20,31 @@ app.get('/store', function (req, res) {
 });
 
 app.get('/first-template', function(req, res){
-    res.render('first-template');
+    res.render('first-template.pug');
 });
+
+app.get('/dynamic-view', function(req, res){
+    res.render('dynamic.pug', {
+       user: {
+           name: 'Johnny',
+           age: "20"
+       }
+    });
+});
+
+app.get('/google', function(req, res){
+    res.render('google.pug')
+})
+
+app.get('/auth/google', function(req, res){
+    res.render('looged.pug', {
+        user : {
+            name: req.query.username,
+            password: req.query.password
+
+        }
+    })
+})
 
 app.listen(3000);
 app.use(function (req, res, next) {

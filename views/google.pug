@@ -1,0 +1,10 @@
+head
+    title Logowanie do google
+body
+    h1 You can log here to your google acount 
+    form(action="/auth/google") 
+        p username: 
+            input(type="text" name="username")
+        p password:
+            input(type="password" name="password")
+            input(type="submit" name="submit")      
